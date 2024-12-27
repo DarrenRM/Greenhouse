@@ -1,0 +1,90 @@
+Greenhouse Window Manager - Project Outline
+
+1. Core Features
+   
+   1.1 Window Position Management
+       - Save window positions and sizes
+       - Restore windows to saved positions
+       - DPI scaling awareness for multi-monitor setups
+       - Automatic window matching based on process and class
+   
+   1.2 Monitor Management
+       - Monitor connection/disconnection detection
+       - Automatic window restoration on monitor reconnection
+       - DPI scale factor handling per monitor
+   
+   1.3 Settings Management
+       - Start with Windows option
+       - Settings persistence in JSON format
+       - Separate files for settings and window positions
+       - Auto-restore on startup option
+
+2. User Interface
+   
+   2.1 Main Window
+       - List of available windows
+       - Two-line display (process name and window title)
+       - Window icons with caching
+       - White background theme
+       - Selection/deselection functionality
+   
+   2.2 Controls
+       - Refresh Windows button
+       - Save Selected button
+       - Restore All button
+       - Settings button
+       - JSON file viewing buttons
+   
+   2.3 System Tray
+       - Custom application icon
+       - Show/Hide window option
+       - Settings access
+       - Exit option
+
+3. Technical Features
+   
+   3.1 Window Handling
+       - Window enumeration and filtering
+       - Icon extraction from executables
+       - Window position and size calculations
+       - DPI scale factor adjustments
+   
+   3.2 Error Handling
+       - Comprehensive logging system
+       - Timestamped log files
+       - Console and file logging
+       - Graceful error recovery
+   
+   3.3 Performance
+       - Icon caching system
+       - Background icon loading
+       - Efficient window matching
+       - Minimal resource usage
+
+4. File Organization
+   
+   4.1 Configuration Files
+       - ~/.greenhouse/settings.json
+       - ~/.greenhouse/windows.json
+   
+   4.2 Log Files
+       - Timestamped log files in logs directory
+       - Detailed error tracking
+   
+   4.3 Resources
+       - Custom application icon
+       - UI theme definitions
+
+5. Future Enhancements
+   
+   5.1 Potential Features
+       - Window grouping
+       - Multiple position presets
+       - Hotkey support
+       - Window layout templates
+   
+   5.2 Improvements
+       - Enhanced window matching
+       - Additional UI customization
+       - Performance optimizations
+       - Extended monitor support

@@ -1,0 +1,89 @@
+Greenhouse Window Manager - Code Structure
+
+File: greenhouse.py
+--------------------------------------------------------------------------------
+
+IMPORTS [1-21]
+- Standard library imports
+- Windows-specific imports (win32gui, win32api, etc.)
+- Third-party imports (PIL, psutil)
+
+LOGGING SETUP [23-45]
+setup_logging()
+- Creates timestamped log files
+- Configures logging format and handlers
+
+SETTINGS CLASS [47-120]
+class Settings
+- Manages single JSON file for all persistent data
+- Methods:
+  - load_data(): Loads settings and window positions
+  - save_data(): Persists all data to disk
+  - load_window_positions(): Gets saved window data
+  - save_window_positions(): Updates window data
+  - set_startup(): Configures Windows startup
+  - settings property: Access to settings dict
+
+CUSTOM LISTBOX CLASS [122-300]
+class CustomListbox
+- Custom widget for window list with icons
+- Methods:
+  - insert(): Adds window items with icons
+  - _on_item_click(): Handles selection/deselection
+  - update_icon(): Updates icons after async load
+- Key features:
+  - Two-line items (process name + window title)
+  - Selection highlighting
+  - Icon support
+  - Selection change callback
+
+WINDOW MANAGER CLASS [302-500]
+class WindowManager
+- Core window management functionality
+- Methods:
+  - get_window_info(): Gets window metadata
+  - find_matching_window(): Matches saved windows
+  - save_window_position(): Saves single window
+  - restore_window_position(): Restores single window
+  - get_window_icon(): Extracts window icons
+- Features:
+  - Monitor detection
+  - Window position tracking
+  - Icon caching
+
+SETTINGS DIALOG CLASS [502-580]
+class SettingsDialog
+- Settings UI window
+- Features:
+  - Start with Windows toggle
+  - View saved data file
+  - Shows data file location
+
+WINDOW MANAGER GUI CLASS [582-800]
+class WindowManagerGUI
+- Main application window
+- Methods:
+  - setup_gui(): Creates main UI
+  - refresh_windows(): Updates window list
+  - on_window_selection_change(): Handles selections
+  - restore_all(): Restores all windows
+- Features:
+  - System tray integration
+  - Window list with icons
+  - Auto-save on selection
+  - Monitor reconnection handling
+
+MAIN ENTRY POINT [802-end]
+main()
+- Sets up logging
+- Creates main window
+- Handles exceptions
+- Cleanup on exit
+
+Key Features:
+- Single JSON file for all persistent data (~/.greenhouse/saved_positions.json)
+- Automatic saving when selecting/deselecting windows
+- System tray support with minimize to tray
+- Monitor detection and automatic restore
+- Icon extraction and caching
+- Windows startup integration
