@@ -2,6 +2,9 @@
 
 A simple utility to save and restore window positions across multiple monitors.
 
+NOTE: This is a work in progress. It was heavily built using Cursor with Sonnet 3.5. Without the AI, this would have taken me a week, but it was built in a few hours.
+If you happen to find this, and you want to use any part of it, do it.
+
 ## Features
 
 - List all visible windows
